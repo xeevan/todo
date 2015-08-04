@@ -1,0 +1,48 @@
+<template name="home">
+{{#contentFor "headerTitle"}}
+	<h1 class="title">ToDo</h1>
+{{/contentFor}}
+
+{{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="jobToDo">{{> ionIcon icon="ios-plus-empty"}}</button>
+{{/contentFor}}
+
+{{#ionView}}
+	{{#ionContent}}
+		{{#ionList}}
+			<div class="item item-divider">
+			    Jobs To Do
+		  	</div>
+		  	{{#if Template.subscriptionsReady}}
+			  	<!-- {{#if todoCount}}
+			  		{{#ionItem}}
+					    You have no job to do. Click on + button to add job.
+				  	{{/ionItem}}
+				{{else}} -->				
+					{{#each todos}}
+						{{#ionItem iconRight=true}}
+					        {{title}}
+					            <!-- <button class="button button-clear" id="doneButton"> -->
+					            <a href="#" id="doneButton">{{> ionIcon icon="ios-checkmark-outline"}}</a>
+					            <!-- </button> -->
+					    {{/ionItem}}
+					{{/each}}
+			  	<!-- {{/if}} -->
+		  	{{/if}}
+
+		  	<div class="item item-divider">
+		  		Jobs Done
+		  	</div>
+
+		  	{{#each jobsDone}}
+		  		{{#ionItem iconRight=true}}
+			  		{{title}}
+			  			<!-- <button class="button button-clear" id="deleteButton"> -->
+			  			<a href="#" id="deleteButton">{{> ionIcon icon="ios-trash-outline"}}</a>
+			  			<!-- </button> -->
+		  		{{/ionItem}}
+		  	{{/each}}
+		{{/ionList}}
+	{{/ionContent}}
+{{/ionView}}
+</template>

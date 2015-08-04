@@ -1,0 +1,18 @@
+<template name="layout">
+{{#ionBody}}
+	{{>ionNavBar class="bar-positive"}}
+
+	{{>ionFooterBar class="bar-balanced"}}
+
+	{{#ionNavView}}
+		{{> yield}}
+	{{/ionNavView}}
+
+{{/ionBody}}
+</template>
+
+<template name="jobToDo">
+{{#ionModal title="Fill the job"}}
+	{{> quickForm collection="todo" id="formData" type="method" template="ionic" meteormethod="inputTodoData" omitFields="done" buttonContent="Save"}}
+{{/ionModal}}
+</template>
